@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.vserve.edp</groupId>
+	<artifactId>edp</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<properties>
+
+
+	</properties>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.1.RELEASE</version>
+	</parent>
+
+	<modules>
+		<module>edp-common</module>
+		<module>edp-notify</module>
+		<module>edp-db</module>
+		<module>edp-git</module>
+		
+		<module>edp-gcs</module>
+		<module>edp-query</module>
+		<module>edp-excel</module>
+		<module>edp-verify</module>
+		<module>edp-workflow-convert</module>
+		<module>edp-api-user</module>
+		<module>edp-security</module>
+		<module>edp-config</module>
+		<module>edp-activity</module>
+		<module>edp-io</module>
+		<module>edp-ftp</module>
+		<module>edp-stream-fetch</module>
+		<module>edp-profile</module>
+		<module>edp-azure</module>
+		<module>edp-api-data</module>
+
+		<module>edp-command</module>
+		
+		<module>edp-data-validator</module>
+	</modules>
+	<distributionManagement>
+
+		<repository>
+			<id>maven-s3-snapshot-repo</id>
+			<name>S3 Snapshot Repository</name>
+			<url>s3://vserve-edp/snapshots</url>
+		</repository>
+	</distributionManagement>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<!-- or whatever version you use -->
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+</project>
