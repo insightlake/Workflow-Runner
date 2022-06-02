@@ -3,6 +3,8 @@
 echo "Starting InsightLake ..."
 
 export JAVA_HOME=/usr/java/default
+export GOOGLE_APPLICATION_CREDENTIALS=/home/vijay/dev_key.json
+
 
 if [ "$JAVA_HOME" != "" ]; then
     #echo "run java in $JAVA_HOME"
@@ -44,5 +46,5 @@ for f in $EDP_HOME/libs/*.jar; do
     CLASSPATH=${CLASSPATH}:$f;
 done
 
-echo "Starting Data Validator ..."
-java -jar -Dthin.root=$EDP_HOME/libs/thin/root $EDP_HOME/libs/thin/root/edp-workflow-runner-2.0.1-RELEASE.jar com.insightlake.edp.data.validator.Application  --spring.config.name=mysql --spring.config.location=file:///$EDP_HOME/conf/mysql.properties /Users/vijaygaur/wfs1.txt /Users/vijaygaur
+echo "Starting Workflow Runner ..."
+java -jar -Dthin.root=$EDP_HOME/libs/thin/root $EDP_HOME/libs/thin/root/edp-workflow-runner-2.0.1.RELEASE.jar com.insightlake.edp.workflow.runner.Application  --spring.config.name=mysql --spring.config.location=file:///$EDP_HOME/conf/mysql.properties --workflows /home/vijay/wfs1.txt --basedir /home/vijay --env /home/vijay/environment.yaml -c /home/vijay/cluster_config.yaml
